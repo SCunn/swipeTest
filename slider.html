@@ -150,7 +150,7 @@
       box.classList.add('active');
       
      //constant State Object
-      const state ={
+      const state ={             
         debounced: {
           startX: null,
           
@@ -163,7 +163,7 @@
       
       
      
-      function debounced(delay, fn) {
+      function debounced(delay, fn) {  // debounce for touchmove event
         let timerId;
         return function (...args) {
           if (timerId) {
@@ -184,7 +184,7 @@
       }
       );
 
-        box.addEventListener('touchmove' , debounced(250, function  touchLeft(e)  {
+        box.addEventListener('touchmove' , debounced(250, function  touchLeft(e)  {  // touchmove set to debounce every 250 ms
           deltaX = e.targetTouches[0].pageX - startX;
          // console.log(deltaX);
 
@@ -193,10 +193,10 @@
           
 
          if (deltaX< 0) {
-                navigate(1);
+                navigate(1);  // if deltaX is less than 0 (swipe left) navigate slide next
               }
       if (deltaX> 0) {
-                navigate(-1);
+                navigate(-1);  // if deltaX is greater than 0 (swipe right) navigate slide prev
                 
               }
          }));
